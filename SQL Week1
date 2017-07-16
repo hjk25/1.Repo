@@ -1,0 +1,56 @@
+-- 1. Flight 51
+select * from flights limit 10;
+select max(distance) from flights;
+select distinct flight, distance
+from flights 
+order by distance DESC;
+
+-- 2. Turbo-jet
+select * from planes limit 10;
+select count(distinct engine) as 'Engine Count'
+from planes;
+select 
+engine,  
+max(seats) as 'max seats'
+from planes
+group by engine
+order by max(seats) desc, engine;
+
+-- 3. 
+select * from flights limit 10;
+select count(*) from flights;
+
+-- 4. 
+select carrier, count(flight) as 'number of flights'
+from flights
+group by carrier;
+
+-- 5.
+select carrier, count(flight) as 'number of flights'
+from flights
+group by carrier
+order by count(flight) DESC;
+
+-- 6.
+select carrier, count(flight) as 'number of flights'
+from flights
+group by carrier
+order by count(flight) DESC limit 5;
+
+-- 7.
+select carrier, count(flight) as 'number of flights', distance
+from flights
+where distance >= 1000
+group by carrier
+order by count(flight) DESC limit 5;
+
+-- 8. What is the average distance, rounded to 2 decimal points, each airline covers in the month of February, in ascending order? 
+select * from flights limit 10;
+select carrier, round(avg(distance),2) as 'average distance'
+from flights
+where month = 2
+group by carrier, month
+order by round(avg(distance),2);
+
+
+
