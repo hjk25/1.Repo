@@ -1,0 +1,41 @@
+---
+title: "R-Week2 HW-HJK"
+author: "Hyun Jin Kim"
+date: "July 27, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Assignment for Week 2
+
+“n choose r” means n! / (( n – r)! * r!).ex: “5 choose 3” evaluates to 10. 
+R has built in functions for choose() and factorial().
+Your task is to write your own variation of the choose() function, that does not use either of these functions.
+Your code should adhere to the style guidelines provided by Hadley Wickham in this week’s reading. 
+
+1. Create loop for numerator for n! as well as a second loop for r!
+2. create third controlling loop for (n-r)! as a function
+3. Once 3 loops are created, use functions to create an uber function
+```{r echo=TRUE}
+apple <- function(n){
+  y <- n
+  x <- y-1
+  while(x >=1){     #x is where you want the loop to break in this case
+    y <- y * x
+    x <- x - 1
+  }
+  return(y)}
+
+nchooser <- function(n, r){
+  return(apple(n) / (apple(n - r) * apple(r)))
+  }
+
+nchooser(5, 3)
+```
+
+```{r echo=TRUE}
+nchooser(5,3) == choose(5,3)
+nchooser(10,2) == choose (10,2)
