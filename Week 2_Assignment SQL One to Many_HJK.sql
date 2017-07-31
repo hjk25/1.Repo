@@ -1,6 +1,12 @@
 create database videos;
 drop table videos.Videos;
-create table videos.Videos(ID TEXT, title TEXT, length INTEGER, URL TEXT);
+create table videos.Videos(
+ID varchar(30) PRIMARY KEY, 
+title varchar(90), 
+length INTEGER, 
+URL varchar(90)
+);
+
 #what's the difference between Text and varchar vs INTEGER and varchar? 
 #I saw examples of people using TEXT and varchar in reading material and samples
 #what do you do when the primary key is NOT an integer? MYSQL throws an error since YT video IDs are not numbers only.
@@ -13,7 +19,13 @@ VALUES
 ('Pf7rTnsYWjI', 'Game of Thrones Season 7 Episode 3 Preview', 300, 'https://www.youtube.com/watch?v=Pf7rTnsYWjI');
 
 select * from videos;
-create table videos.Reviewers(ID TEXT, name TEXT, rating TEXT, review TEXT);
+create table videos.Reviewers(
+ID varchar(30),
+name varchar(30), 
+review varchar(30), 
+rating varchar(30)
+);
+
 insert into videos.Reviewers
 (ID, name, rating, review)
 VALUES
