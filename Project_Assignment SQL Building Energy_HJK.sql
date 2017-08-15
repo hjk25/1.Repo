@@ -1,4 +1,5 @@
 #1 - 
+DROP TABLE IF EXISTS BuildingEnergy;
 create database BuildingEnergy;
 show tables in BuildingEnergy;
 
